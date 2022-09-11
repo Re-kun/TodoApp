@@ -11,7 +11,7 @@
     <div class="container">
         <button class="newTodo"><p>+</p></button>
         <div class="header">
-            <h3 class="title" style="margin-top: 2rem;">Todo App</h3>
+            <h2 class="title" style="margin-top: 2rem;">TodoApp</h2>
         </div>
         <div class="todoList">
             <% data.forEach((todo, index) => { %>
@@ -26,17 +26,17 @@
                             <h2 class="toggleBtn">...</h2>
                             <div class="optionDropdown">
                                 <div class="edit" style="margin-top: 5px;" >
-                                    <a href="/edit/<%= todo.id %>">Edit</a>
+                                    <a class="btnEdit" href="/edit/<%= todo.id %>">Edit</a>
                                 </div>
 
                                 <form action="/delete" method="post" class="delete">
                                     <input type="hidden" name="id" value="<%= todo.id %>">
-                                    <button type="submit" style="border: none; background: none; font-size: 1rem;">Delete</button>
+                                    <button class="btnDelete" type="submit" >Delete</button>
                                 </form>
 
                                 <form action="/changeStatus/<%= todo.id %>" method="post" class="complete" >
                                     <input type="hidden" value="<%= todo.complete %>" name="complete">
-                                    <button type="submit" style="border: none; background: none; font-size: 1rem;">Complete</button>
+                                    <button class="btnCompleted" type="submit" >Complete</button>
                                 </form>
                             </div>
                         </div>

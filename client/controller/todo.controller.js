@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 
 export const index = (req, res) => {
     axios({
@@ -18,7 +18,7 @@ export const index = (req, res) => {
 
 export const create = (req, res) => {
     if(!req.body.title){
-        return res.redirect("/")
+        return res.redirect("/");
     };
 
     const todo = {
@@ -42,9 +42,9 @@ export const deleteData = (req, res) => {
     axios({
         method: "delete",
         url: "http://localhost:3000/todo/" + id
-    })
+    });
 
-    res.redirect("/")
+    res.redirect("/");
 }
 
 export const getActiveTodo = (req, res) => {
@@ -117,19 +117,13 @@ export const update = (req, res) => {
 export const changeStatus = (req, res) => {
     const id = req.params.id;
     let status = req.body.complete;
-    console.log(status)
-    status ? status = true : status = false; 
-    console.log(status)
-    // res.redirect("/")
+    status == "true" ? status = false : status = true;
 
-    // const todo = {
-    //     complete: status,
-    // };
-    // axios({
-    //     method: "put",
-    //     url: "http://localhost:3000/todo/" + id,
-    //     data: todo
-    // })
+    axios({
+        method: "put",
+        url: "http://localhost:3000/todo/" + id,
+        data: { complete: status }
+    });
     
-    res.redirect("/")
+    res.redirect("/");
 }

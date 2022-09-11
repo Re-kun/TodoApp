@@ -7,21 +7,26 @@ exports.getData = async (req, res) => {
     }
     catch { 
         res.status(500).send({ message: "Something wrong i can feel it" });
-    }
+    };
 };
 
 exports.createData = async (req, res) => {
     try{
+        if(!req.body.title){
+            res.status(400).send({ message: "This content can't be empty" });
+        };
+
         const todo = {
             title: req.body.title,
             complete: req.body.complete ? req.body.complete : false
-        }
+        };
+
         const data = await db.Todo.create(todo);   
         res.status(200).send(data);
     }
     catch { 
         res.status(500).send({ message: "Something wrong i can feel it" });
-    }
+    };
 };
 
 exports.deleteData = async (req, res) => {
@@ -41,8 +46,8 @@ exports.updateData = async (req, res) => {
         if(result == 1){
             res.status(200).send({ message: "Data was successfully updated" });
         }else{
-            res.status(400).send({ message: "Something wrong i can feel it" });
-        }
+            res.status(400).send({ message: "Can't update data with id = " + id });
+        };
     }
     catch(err){
         res.status(500).send({ message: err.message || "Something wrong i can feel it" });
@@ -57,8 +62,8 @@ exports.getActiveTodo = async (req, res) => {
     }
     catch { 
         res.status(500).send({ message: "Something wrong i can feel it" });
-    }
-}
+    };
+};
 
 exports.getCompletedTodo = async (req, res) => {
     try{
@@ -67,5 +72,5 @@ exports.getCompletedTodo = async (req, res) => {
     }
     catch { 
         res.status(500).send({ message: "Something wrong i can feel it" });
-    }
-}
+    };
+};

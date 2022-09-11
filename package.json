@@ -1,0 +1,21 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db": "nodemon server/index.js",
+    "start" : "nodemon client/index.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Re-kun/TodoApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Re-kun/TodoApp/issues"
+  },
+  "homepage": "https://github.com/Re-kun/TodoApp#readme"
+}
