@@ -1,7 +1,7 @@
 # TodoApp
 Just simple crud with express.js and sequelize orm
 
-#How to run
+# How to run?
 - create todoApp database
 - run your database by xampp
 - open the project 
