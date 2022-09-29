@@ -11,7 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 // router
 app.use(router);
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+app.listen(8080, () => {
     console.log("List any thing in here -> http://localhost:" + PORT);
 });
