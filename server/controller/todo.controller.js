@@ -1,8 +1,8 @@
-const db = require("../models");
+import Todos from "../models/Todo.models.js";
 
-exports.getData = async (req, res) => {
+export const getData = async (req, res) => {
     try{
-        const data = await db.Todo.findAll();   
+        const data = await Todos.findAll();   
         res.status(200).send(data);
     }
     catch { 
@@ -10,7 +10,7 @@ exports.getData = async (req, res) => {
     };
 };
 
-exports.createData = async (req, res) => {
+export const createData = async (req, res) => {
     try{
         if(!req.body.title){
             res.status(400).send({ message: "This content can't be empty" });
@@ -21,7 +21,7 @@ exports.createData = async (req, res) => {
             complete: req.body.complete ? req.body.complete : false
         };
 
-        const data = await db.Todo.create(todo);   
+        const data = await Todos.create(todo);   
         res.status(200).send(data);
     }
     catch { 
@@ -29,20 +29,20 @@ exports.createData = async (req, res) => {
     };
 };
 
-exports.deleteData = async (req, res) => {
+export const deleteData = async (req, res) => {
     try {
         const id = req.params.id;
-        await db.Todo.destroy({ where: {id: id} });
+        await Todos.destroy({ where: {id: id} });
     }
     catch {
         res.status(500).send({ message: "Something wrong i can feel it" });
     }
 };
 
-exports.updateData = async (req, res) => {
+export const updateData = async (req, res) => {
     try {
         const id = req.params.id;
-        const result = await db.Todo.update(req.body, { where: {id:id} });   
+        const result = await Todos.update(req.body, { where: {id:id} });   
         if(result == 1){
             res.status(200).send({ message: "Data was successfully updated" });
         }else{
@@ -55,9 +55,9 @@ exports.updateData = async (req, res) => {
     };
 };
 
-exports.getActiveTodo = async (req, res) => {
+export const getActiveTodo = async (req, res) => {
     try{
-        const data = await db.Todo.findAll({ where: {complete: false} });   
+        const data = await Todos.findAll({ where: {complete: false} });   
         res.status(200).send(data);
     }
     catch { 
@@ -65,9 +65,9 @@ exports.getActiveTodo = async (req, res) => {
     };
 };
 
-exports.getCompletedTodo = async (req, res) => {
+export const getCompletedTodo = async (req, res) => {
     try{
-        const data = await db.Todo.findAll({ where: {complete: true} });   
+        const data = await Todos.findAll({ where: {complete: true} });   
         res.status(200).send(data);
     }
     catch { 

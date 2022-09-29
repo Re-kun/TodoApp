@@ -1,13 +1,12 @@
-module.exports = app => {
-    const todo = require("../controller/todo.controller");
-    let router = require("express").Router();
+import { getData, getActiveTodo, getCompletedTodo, createData, deleteData, updateData } from "../controller/todo.controller.js";
+import express from "express";
 
-    router.get("/", todo.getData);
-    router.get("/active", todo.getActiveTodo);
-    router.get("/completed", todo.getCompletedTodo);
-    router.post("/", todo.createData);
-    router.delete("/:id", todo.deleteData);
-    router.put("/:id", todo.updateData);
+let router = express.Router();
+router.get("/todo", getData);
+router.get("/todo/active", getActiveTodo);
+router.get("/todo/completed", getCompletedTodo);
+router.post("/todo/", createData);
+router.delete("/todo/:id", deleteData);
+router.put("/todo/:id", updateData);
 
-    app.use("/todo", router );
-};
+export default router;
