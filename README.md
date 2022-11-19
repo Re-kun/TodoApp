@@ -1,16 +1,12 @@
-# TodoApp
-Just simple crud with express.js and sequelize orm
+## TodoApp
 
-# How to run?
-- create todoApp database
-- run your database by xampp
-- open the project 
-- "npm install"
-- and then go to server folder "cd server"
-- and run " nodemon . "
-- if you not have nodemon you can install with the command "npm install nodemon"
-- and then go to client "cd client"
-- and run "nodemon ."
-- and go to http://localhost:8080
+- Sebuah aplikasi web untuk membuat list 
+- dibuat dengan nodejs, ejs, express, dan mysql
 
-:v
+## Screenshot 
+
+## Instalasi
+- clone repo ini dengan mengetikkan di terminal ```sh git clone https://github.com/Re-kun/TodoApp```
+- setelah itu silahkan masuk ke direktori ./server dan jalankan perintah ```npm install``` di terminal
+- setelah itu silahkan rename file env_example menjadi .env dan silahkan edit di dalamnya menjadi konfigurasi sesuai dengan komputer anda
+- lakukan hal yang sama di direktori ./client lalu buka browser anda dan ketikan url berikut: ```http://localhost:3000```
